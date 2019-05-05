@@ -1,4 +1,4 @@
-@[toc]
+
 # Dart 异步编程
 编程中的代码执行，通常分为`同步`与`异步`两种。简单说，同步就是按照代码的编写顺序，从上到下依次执行，这也是最简单的我们最常接触的一种形式。但是同步代码的缺点也显而易见，如果其中某一行或几行代码非常耗时，那么就会阻塞，使得后面的代码不能被立刻执行。
 
@@ -547,6 +547,7 @@ void doWork(String value){
 [Isolate 文档](https://api.dartlang.org/stable/2.3.0/dart-isolate/Isolate-class.html)
 
 **欢迎关注我的公众号：编程之路从0到1**
+
 ![编程之路从0到1](https://img-blog.csdnimg.cn/20190301102949549.jpg)
 
 
