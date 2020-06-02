@@ -17,6 +17,9 @@ dart编程快速上手
 
 [**Flutter 全栈开发之Dart编程指南**](https://study.163.com/course/courseMain.htm?courseId=1209508814&share=2&shareId=480000001855430)
 
-请关注 [我的个人博客](https://blog.csdn.net/yingshukun)
+请关注 
 
+- [我的个人博客](https://blog.csdn.net/yingshukun)
+
+- [我的个人网站](http://www.bczl.xyz/)
 
