@@ -1,3 +1,7 @@
+
+
+[![Gitter](https://badges.gitter.im/bczl-flutter/community.svg)](https://gitter.im/bczl-flutter/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # learn-dart
 dart编程快速上手
 
@@ -24,4 +28,3 @@ dart编程快速上手
 - [我的个人博客](https://blog.csdn.net/yingshukun)
 
 - [我的个人网站](http://www.bczl.xyz/)
-
