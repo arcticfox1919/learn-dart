@@ -1,12 +1,14 @@
-# Dart 调用C语言
+# ~~Dart 调用C语言~~ 
 本篇博客研究Dart语言如何调用C语言代码混合编程，最后我们实现一个简单示例，在C语言中编写简单加解密函数，使用dart调用并传入字符串，返回加密结果，调用解密函数，恢复字符串内容。
+
+**随着Dart SDK版本迭代，本文章部分内容已过时，最新版本教程已经上传B站，请查看 [Dart FFI 入门](https://www.bilibili.com/video/BV1v44y1i7ed)**
 
 ## 环境准备
 ### 编译器环境
 如未安装过VS编译器，则推荐使用GCC编译器，下载一个64位Windows版本的GCC——`MinGW-W64`
 [下载地址](https://sourceforge.net/projects/mingw-w64/files/)
 
-![在这里插入图片描述](https://user-gold-cdn.xitu.io/2019/5/17/16ac5e7324557ee5?w=358&h=338&f=jpeg&s=34499)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190517193751536.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
 如上，它有两个版本，`sjlj`和`seh`后缀表示异常处理模式，`seh` 性能较好，但不支持 32位。 `sjlj` 稳定性好，可支持 32位，推荐下载`seh` 版本
 
 将编译器安装到指定的目录，完成安装后，还需要配置一下环境变量，将安装目录下的`bin`目录加入到系统Path环境变量中，`bin`目录下包含`gcc.exe`、`make.exe`等工具链。
@@ -21,6 +23,7 @@
 
 
 ## 测试Dart `ffi`接口
+关于C语言相关的各种知识，包括构建、动态库编译与加载，请学习我的[《C语言专栏》](https://blog.csdn.net/yingshukun/category_9291402.html)，只有掌握这些基础知识，才能应对各种报错问题。
 ### 简单示例
 创建测试工程，打开`cmd`命令行
 ```
@@ -84,7 +87,7 @@ void main(List<String> args) {
 }
 ```
 
-![在这里插入图片描述](https://user-gold-cdn.xitu.io/2019/5/17/16ac5e7324674948?w=781&h=451&f=jpeg&s=29017)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190517200625101.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
 
 ### 深入用法
 这里写一个稍微深入一点的示例，我们在C语言中写一个简单加密算法，然后使用dart调用C函数加密解密
@@ -190,7 +193,7 @@ class CString extends Pointer<Int8> {
 ```
 
 运行结果
-![在这里插入图片描述](https://user-gold-cdn.xitu.io/2019/5/17/16ac5e7324533331?w=259&h=65&f=jpeg&s=5260)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190517204254208.jpg)
 可以看到将`"helloworld"`字符串加密后变成一串乱码，解密字符串后，恢复内容
 
 
@@ -298,5 +301,12 @@ class CString extends Pointer<Int8> {
 [dart:ffi 源码](https://github.com/dart-lang/sdk/tree/master/sdk/lib/ffi)
 [dart:ffi 官方示例](https://github.com/dart-lang/sdk/blob/master/samples/ffi/sqlite/docs/sqlite-tutorial.md)
 
+## 视频课程
+如需要获取完整的**Flutter全栈式开发课程**，请 [**点击跳转**](http://m.study.163.com/provider/480000001855430/index.htm?share=2&shareId=480000001855430)
+
+![qr_adv](https://img-blog.csdnimg.cn/img_convert/eb3c16913c155e08e1443a0029003aa1.png)
+
+
 **欢迎关注我的公众号：编程之路从0到1**
-![在这里插入图片描述](https://user-gold-cdn.xitu.io/2019/5/15/16abb2212e946510?w=258&h=258&f=jpeg&s=27693)
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190301102949549.jpg)
