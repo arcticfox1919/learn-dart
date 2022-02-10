@@ -8,7 +8,7 @@
 
 我们很容易发现，这种基于事件的异步模型，只适合`I/O`密集型的耗时操作，因为`I/O`耗时操作，往往是把时间浪费在等待对方传送数据或者返回结果，因此这种异步模型往往用于网络服务器并发。如果是计算密集型的操作，则应当尽可能利用处理器的多核，实现并行计算。
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190505100632250.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
+![](https://img-blog.csdnimg.cn/20190505100632250.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
 
 ## Dart 的事件循环
 
@@ -19,7 +19,7 @@ Dart 的两个队列分别是
 
 - `Event queue` 事件队列
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190505100705326.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
+![](https://img-blog.csdnimg.cn/20190505100705326.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
 
 
 Dart事件循环执行如上图所示
@@ -44,10 +44,10 @@ void  myTask(){
 }
 
 void  main() {
-    # 1. 使用 scheduleMicrotask 方法添加
+    // 1. 使用 scheduleMicrotask 方法添加
     scheduleMicrotask(myTask);
 
-    # 2. 使用Future对象添加
+    // 2. 使用Future对象添加
     new  Future.microtask(myTask);
 }
 ```
@@ -423,11 +423,11 @@ main isolate message: [1, isolate_1 任务完成]
 isolate_1 message: [1, 这条信息是 main isolate 发送的]
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190505111443334.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
+![](https://img-blog.csdnimg.cn/20190505111443334.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
 整个消息通信过程如上图所示，**两个Isolate是通过两对Port对象通信，一对Port分别由用于接收消息的`ReceivePort`对象，和用于发送消息的`SendPort`对象构成。其中`SendPort`对象不用单独创建，它已经包含在`ReceivePort`对象之中。需要注意，一对Port对象只能单向发消息，这就如同一根自来水管，`ReceivePort`和`SendPort`分别位于水管的两头，水流只能从`SendPort`这头流向`ReceivePort`这头。因此，两个`Isolate`之间的消息通信肯定是需要两根这样的水管的，这就需要两对Port对象。**
 
 理解了`Isolate`消息通信的原理，那么在Dart代码中，具体是如何操作的呢？
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190505121830821.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
+![](https://img-blog.csdnimg.cn/20190505121830821.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9hcmN0aWNmb3guYmxvZy5jc2RuLm5ldA==,size_16,color_FFFFFF,t_70)
 **`ReceivePort`对象通过调用`listen`方法，传入一个函数可用来监听并处理发送来的消息。`SendPort`对象则调用`send()`方法来发送消息。`send`方法传入的参数可以是`null`,` num`, `bool`, `double`,`String`, `List` ,`Map`或者是自定义的类。** 在上例中，我们发送的是包含两个元素的`List`对象，第一个元素是整型，表示消息类型，第二个元素则表示消息内容。
 
 ### spawn
@@ -496,7 +496,7 @@ main isolate message: [1, doWork 任务完成]
 doWork message: [1, 这条信息是 main isolate 发送的]
 ```
 
-无论是上面的`spawn`还是`spawnUri`，运行后都会创建两个进程，一个是主`Isolate`的进程，一个是新`Isolate`的进程，两个进程都双向绑定了消息通信的通道，即使新的`Isolate`中的任务完成了，它的进程也不会立刻退出，因此，当使用完自己创建的`Isolate`后，最好调用`newIsolate.kill(priority: Isolate.immediate);`将`Isolate`立即杀死。
+无论是上面的`spawn`还是`spawnUri`，运行后都会包含两个Isolate，一个是主`Isolate`，一个是新`Isolate`，两个都双向绑定了消息通信的通道，即使新的`Isolate`中的任务完成了，它也不会立刻退出，因此，当使用完自己创建的`Isolate`后，最好调用`newIsolate.kill(priority: Isolate.immediate);`将`Isolate`立即杀死。
 
 ### Flutter 中创建Isolate
 无论如何，在Dart中创建一个`Isolate`都显得有些繁琐，可惜的是Dart官方并未提供更高级封装。但是，如果想在Flutter中创建`Isolate`，则有更简便的API，这是由`Flutter`官方进一步封装`ReceivePort `而提供的更简洁API。[详细API文档](https://docs.flutter.io/flutter/foundation/compute.html)
@@ -515,7 +515,7 @@ create_new_task() async{
 }
 
 
-void doWork(String value){
+String doWork(String value){
   print("new isolate doWork start");
   // 模拟耗时5秒
   sleep(Duration(seconds:5));
@@ -540,15 +540,20 @@ void doWork(String value){
 *   JSON 解码
 *   加密
 *   图像处理：比如剪裁
-*   网络请求：加载资源、图片
+
 
 参考资料：
 [Dart 文档]( https://webdev.dartlang.org/articles/performance/event-loop)
 [Isolate 文档](https://api.dartlang.org/stable/2.3.0/dart-isolate/Isolate-class.html)
 
-**欢迎关注我的公众号：编程之路从0到1**
 
+
+# 视频课程
+
+或关注博主视频课程，[**Flutter全栈式开发**](http://m.study.163.com/provider/480000001855430/index.htm?share=2&shareId=480000001855430)
+![qr_adv](https://img-blog.csdnimg.cn/img_convert/eb3c16913c155e08e1443a0029003aa1.png)
+
+------
+
+**关注公众号：编程之路从0到1**
 ![编程之路从0到1](https://img-blog.csdnimg.cn/20190301102949549.jpg)
-
-
-
