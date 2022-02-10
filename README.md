@@ -16,15 +16,15 @@ Dart 编程入门到深入系列：
 
 [Dart 异步编程详解之一文全懂](https://github.com/arcticfox1919/learn-dart/blob/master/Dart%20%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E8%AF%A6%E8%A7%A3.md)
 
-[Dart 语言异步之Stream详解](https://arcticfox.blog.csdn.net/article/details/100855253)
+[Dart 语言异步之Stream详解](https://github.com/arcticfox1919/learn-dart/blob/master/Dart%20%E8%AF%AD%E8%A8%80Stream%E8%AF%A6%E8%A7%A3.md)
 
-[Dart 语言标准流与文件操作](https://arcticfox.blog.csdn.net/article/details/100866655)
+[Dart 语言标准流与文件操作](https://github.com/arcticfox1919/learn-dart/blob/master/Dart%20%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C.md)
 
-[Dart 网络编程](https://arcticfox.blog.csdn.net/article/details/104214620)
+[Dart 网络编程](https://github.com/arcticfox1919/learn-dart/blob/master/Dart%20%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md)
 
 **实战篇**
 
-[Dart 爬虫开发体验](https://zhuanlan.zhihu.com/p/356553753)
+[Dart 爬虫开发体验](https://blog.bczl.xyz/archives/4)
 
 [Dart 全栈之服务端开发](https://arcticfox.blog.csdn.net/article/details/120826195)
 
@@ -49,7 +49,7 @@ Dart 编程入门到深入系列：
 
 [**Flutter全栈式开发-高级篇**](https://study.163.com/course/courseMain.htm?courseId=1211268802&share=2&shareId=480000001855430)
 
-或关注博主 [**lutter全栈式开系列**(http://m.study.163.com/provider/480000001855430/index.htm?share=2&shareId=480000001855430)
+或关注博主 [**Flutter全栈式开系列**](http://m.study.163.com/provider/480000001855430/index.htm?share=2&shareId=480000001855430)
 
 ![qr_adv](https://img-blog.csdnimg.cn/img_convert/eb3c16913c155e08e1443a0029003aa1.png)
 
